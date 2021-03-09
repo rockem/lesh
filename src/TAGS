@@ -1,0 +1,102 @@
+
+executer.c,335
+static PerlInterpreter *my_perl;my_perl19,293
+void execute_init() {execute_init27,481
+void execute_cleanup() {execute_cleanup37,704
+int execute_command(_command* command) {execute_command43,779
+static void execSystem(int argc, char** argv) {execSystem69,1377
+static char** makeArgs(int argc, char** argv) {makeArgs129,2590
+
+executer.h,71
+#define __EXECUTER_H__EXECUTER_H2,21
+#define _LESH_CD _LESH_CD6,64
+
+general.c,159
+char* c_strdup(const char *s1) {c_strdup15,148
+char *c_getcwd(char *buffer, int maxlen) {c_getcwd28,356
+void delete_argv(char** argv) {delete_argv36,494
+
+general.h,393
+#define __GENERAL_H__GENERAL_H2,20
+#define _ENV_HOME _ENV_HOME4,41
+#define _ENV_PATH _ENV_PATH5,66
+#define SEPERATOR_CHAR SEPERATOR_CHAR18,331
+#define SEPERATOR_STR SEPERATOR_STR19,359
+#define PATH_SEPERATOR_STR PATH_SEPERATOR_STR20,387
+#define SEPERATOR_CHAR SEPERATOR_CHAR22,424
+#define SEPERATOR_STR SEPERATOR_STR23,451
+#define PATH_SEPERATOR_STR PATH_SEPERATOR_STR24,478
+
+getline.c,114
+char* getPromptLine(char* prompt) {getPromptLine10,118
+char* getPromptLine(char* prompt) {getPromptLine26,412
+
+getline.h,71
+#define __GETLINE_H__GETLINE_H2,20
+#define LINE_SIZE LINE_SIZE4,41
+
+hash.c,576
+HashList* hash_init() {hash_init12,290
+void hash_cleanup(HashList* list) {hash_cleanup26,520
+int hash_set_value(HashList* list, const char* name, const char* value) {hash_set_value41,798
+char* hash_get_value(HashList* list, const char* name) {hash_get_value69,1481
+static int get_name_location(const char* name) {get_name_location84,1771
+static _hash_node* find_node(_hash_list list, const char* name) {find_node92,1933
+static void insert_node(_hash_list* list, _hash_node* node) {insert_node101,2128
+static void free_node(_hash_node *node) {free_node110,2314
+
+hash.h,514
+#define __HASH_H__HASH_H2,17
+#define _HASH_CHAR_L_A _HASH_CHAR_L_A4,35
+#define _HASH_CHAR_U_A _HASH_CHAR_U_A5,61
+#define _HASH_ARR_SIZE _HASH_ARR_SIZE7,88
+typedef struct __hash_node{__hash_node9,115
+	char* name;name10,143
+	char* value;value11,156
+	struct __hash_node* next;next12,170
+} _hash_node;_hash_node13,197
+	_hash_node* head;head16,229
+	_hash_node* tail;tail17,248
+} _hash_list;_hash_list18,267
+	_hash_list hash_values[_HASH_ARR_SIZE];hash_values21,299
+} HashList;HashList22,340
+
+lesh_perl.c,127
+void xs_init () {xs_init11,171
+static XS (XS_cd) {XS18,305
+static XS (XS_set) {XS28,439
+static XS (XS_alias) {XS33,466
+
+lesh_perl.h,127
+#define __LESH_PERL__LESH_PERL2,20
+#define _XS_CD _XS_CD4,41
+#define _XS_EXIT _XS_EXIT5,63
+#define _XS_SET _XS_SET6,87
+
+main.c,361
+HashList* g_aliases;g_aliases14,204
+HashList* g_variables;g_variables15,225
+static _command* comm;comm16,248
+static void delete_command() {delete_command20,303
+static void initialize() {initialize27,393
+static void cleanup(void) {cleanup34,515
+static void fill_variables() {fill_variables40,620
+int _tmain(int argc, char* argv[]) {_tmain60,1046
+
+parser.c,139
+_command* parse_line(char* line) {parse_line17,315
+static int resizeArray(char*** arr, int origSize, int newSize) {resizeArray226,4046
+
+parser.h,106
+#define __PARSER_H__PARSER_H2,19
+	char** argv;argv5,56
+	int argc;argc6,70
+} _command;_command7,81
+
+stdafx.c,0
+
+stdafx.h,55
+#define WIN32_LEAN_AND_MEAN	WIN32_LEAN_AND_MEAN9,184
+
+xsinit.c,28
+xs_init(pTHX)xs_init9,131
